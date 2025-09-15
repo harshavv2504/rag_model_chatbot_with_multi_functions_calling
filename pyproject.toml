@@ -1,0 +1,185 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "coffee-business-chatbot"
+version = "1.3.0"
+description = "AI-powered chatbot for coffee business consultation and sales qualification"
+readme = "README.md"
+license = {file = "LICENSE"}
+authors = [
+    {name = "Coffee Business AI Team", email = "info@coffeeai.com"}
+]
+maintainers = [
+    {name = "Coffee Business AI Team", email = "info@coffeeai.com"}
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Communications :: Chat",
+    "Topic :: Office/Business",
+]
+keywords = ["ai", "chatbot", "coffee", "business", "langchain", "openai", "fastapi", "websocket"]
+dependencies = [
+    "langchain>=0.1.0",
+    "langchain-openai>=0.3.0",
+    "openai>=1.0.0",
+    "python-dotenv>=1.0.0",
+    "langsmith>=0.1.0",
+    "fastapi>=0.104.0",
+    "uvicorn>=0.24.0",
+    "websockets>=12.0",
+]
+requires-python = ">=3.8"
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "pytest-asyncio>=0.21.0",
+    "black>=23.0.0",
+    "isort>=5.12.0",
+    "flake8>=6.0.0",
+    "mypy>=1.0.0",
+    "pre-commit>=3.0.0",
+]
+test = [
+    "pytest>=7.0.0",
+    "pytest-asyncio>=0.21.0",
+    "pytest-cov>=4.0.0",
+    "httpx>=0.24.0",
+    "websockets>=12.0",
+]
+docs = [
+    "mkdocs>=1.4.0",
+    "mkdocs-material>=9.0.0",
+    "mkdocstrings>=0.20.0",
+]
+
+[project.scripts]
+coffee-chatbot = "web_knowledge_chatbot:main"
+coffee-chatbot-cli = "knowledge_based_chatbot:main"
+
+[project.urls]
+Homepage = "https://github.com/yourusername/coffee-business-chatbot"
+Documentation = "https://github.com/yourusername/coffee-business-chatbot#readme"
+Repository = "https://github.com/yourusername/coffee-business-chatbot"
+"Bug Tracker" = "https://github.com/yourusername/coffee-business-chatbot/issues"
+Changelog = "https://github.com/yourusername/coffee-business-chatbot/blob/main/CHANGELOG.md"
+
+[tool.setuptools]
+packages = ["common", "knowledge"]
+
+[tool.setuptools.package-data]
+"*" = ["*.md", "*.txt", "*.json", "*.html", "*.css", "*.js"]
+"knowledge" = ["*.mdx"]
+"static" = ["*"]
+
+[tool.black]
+line-length = 88
+target-version = ['py38']
+include = '\.pyi?$'
+extend-exclude = '''
+/(
+  # directories
+  \.eggs
+  | \.git
+  | \.hg
+  | \.mypy_cache
+  | \.tox
+  | \.venv
+  | build
+  | dist
+)/
+'''
+
+[tool.isort]
+profile = "black"
+multi_line_output = 3
+line_length = 88
+known_first_party = ["common", "knowledge"]
+
+[tool.flake8]
+max-line-length = 88
+extend-ignore = ["E203", "W503"]
+exclude = [
+    ".git",
+    "__pycache__",
+    "build",
+    "dist",
+    ".eggs",
+    "*.egg-info",
+    ".venv",
+    ".tox",
+]
+
+[tool.mypy]
+python_version = "3.8"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
+disallow_incomplete_defs = true
+check_untyped_defs = true
+disallow_untyped_decorators = true
+no_implicit_optional = true
+warn_redundant_casts = true
+warn_unused_ignores = true
+warn_no_return = true
+warn_unreachable = true
+strict_equality = true
+
+[[tool.mypy.overrides]]
+module = [
+    "langchain.*",
+    "openai.*",
+    "fastapi.*",
+    "uvicorn.*",
+    "websockets.*",
+]
+ignore_missing_imports = true
+
+[tool.pytest.ini_options]
+minversion = "7.0"
+addopts = "-ra -q --strict-markers --strict-config"
+testpaths = ["tests"]
+python_files = ["test_*.py", "*_test.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+markers = [
+    "slow: marks tests as slow (deselect with '-m \"not slow\"')",
+    "integration: marks tests as integration tests",
+    "unit: marks tests as unit tests",
+]
+
+[tool.coverage.run]
+source = [".", "common", "knowledge"]
+omit = [
+    "*/tests/*",
+    "*/test_*",
+    "*/__pycache__/*",
+    "*/venv/*",
+    "*/env/*",
+    "setup.py",
+]
+
+[tool.coverage.report]
+exclude_lines = [
+    "pragma: no cover",
+    "def __repr__",
+    "if self.debug:",
+    "if settings.DEBUG",
+    "raise AssertionError",
+    "raise NotImplementedError",
+    "if 0:",
+    "if __name__ == .__main__.:",
+    "class .*\\bProtocol\\):",
+    "@(abc\\.)?abstractmethod",
+]

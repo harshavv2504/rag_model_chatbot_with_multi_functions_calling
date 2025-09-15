@@ -100,32 +100,83 @@ A sophisticated AI-powered chatbot built with FastAPI and Langchain, designed sp
 - OpenAI API key
 - Git
 
-### **Setup Instructions**
+### **Quick Start**
+```bash
+# Clone the repository
+git clone https://github.com/yourusername/coffee-business-chatbot.git
+cd coffee-business-chatbot
+
+# Quick setup with Make
+make quickstart
+```
+
+### **Manual Setup Instructions**
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/yourusername/langchain-coffee-chatbot.git
-   cd langchain-coffee-chatbot
+   git clone https://github.com/yourusername/coffee-business-chatbot.git
+   cd coffee-business-chatbot
    ```
 
-2. **Install dependencies**
+2. **Create virtual environment (recommended)**
+   ```bash
+   python -m venv venv
+   source venv/bin/activate  # On Windows: venv\Scripts\activate
+   ```
+
+3. **Install dependencies**
    ```bash
    pip install -r requirements.txt
+   # Or for development
+   make install-dev
    ```
 
-3. **Configure environment variables**
-   Create a `.env` file in the root directory:
+4. **Configure environment variables**
+   ```bash
+   # Copy example environment file
+   cp .env.example .env
+   # Edit .env with your API keys
+   ```
+   
+   Required variables in `.env`:
    ```env
    OPENAI_API_KEY=your_openai_api_key_here
    ```
 
-4. **Run the application**
+5. **Run the application**
    ```bash
    python web_knowledge_chatbot.py
+   # Or using Make
+   make run
    ```
 
-5. **Access the chatbot**
+6. **Access the chatbot**
    Open your browser and navigate to `http://localhost:8000`
+
+### **Docker Installation**
+```bash
+# Build and run with Docker
+make docker-build
+make docker-run
+
+# Or use docker-compose
+docker-compose up -d
+```
+
+### **Development Setup**
+```bash
+# Complete development environment setup
+make dev-setup
+
+# Run tests
+make test
+
+# Format code
+make format
+
+# Run linting
+make lint
+```
 
 ## 📚 Knowledge Base
 
