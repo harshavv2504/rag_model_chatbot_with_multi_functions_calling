@@ -21,7 +21,7 @@ def mock_openai_response():
         "choices": [
             {
                 "message": {
-                    "content": "Hello! I'm Logan from Abbotsford Road Coffee Specialists.",
+                    "content": "Hello! I'm Logan from Brewmaster Solutions Inc.",
                     "role": "assistant"
                 }
             }
@@ -162,7 +162,7 @@ def sample_conversation_history():
     """Sample conversation history for testing."""
     return [
         {"role": "user", "content": "Hello"},
-        {"role": "assistant", "content": "Hi! I'm Logan from Abbotsford Road Coffee Specialists."},
+        {"role": "assistant", "content": "Hi! I'm Logan from Brewmaster Solutions Inc."},
         {"role": "user", "content": "I want to open a coffee shop"},
         {"role": "assistant", "content": "That's exciting! When are you planning to open?"}
     ]

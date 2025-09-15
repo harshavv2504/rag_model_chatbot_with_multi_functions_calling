@@ -1,6 +1,6 @@
 # ☕ Langchain Coffee Business Chatbot UI
 
-A sophisticated AI-powered chatbot built with FastAPI and Langchain, designed specifically for coffee business consultation and sales qualification. Features Logan, an expert coffee business consultant from Abbotsford Road Coffee Specialists, who provides intelligent responses based on a comprehensive knowledge base and handles sales qualification workflows.
+A sophisticated AI-powered chatbot built with FastAPI and Langchain, designed specifically for coffee business consultation and sales qualification. Features Logan, an expert coffee business consultant from Brewmaster Solutions Inc., who provides intelligent responses based on a comprehensive knowledge base and handles sales qualification workflows.
 
 ## 🎯 **Live Sales Qualification in Action**
 
@@ -8,7 +8,7 @@ Watch Logan intelligently qualify leads through natural conversation, automatica
 
 ### **Example 1: Existing Business Owner (HIGH Priority - Score: 80)**
 ```
-🤖 Logan: I'm Logan from Abbotsford Road Coffee Specialists! How can I assist you with improving your coffee business today?
+🤖 Logan: I'm Logan from Brewmaster Solutions Inc.! How can I assist you with improving your coffee business today?
 
 👤 User: We run three coffee shops and our current supplier is driving us crazy with late deliveries.
 
@@ -29,7 +29,7 @@ Watch Logan intelligently qualify leads through natural conversation, automatica
   "business_scale": "3 locations",
   "support_needs": "training, menu development",
   "contact_name": "Mike",
-  "contact_email": "mike@citycoffee.com",
+  "contact_email": "mike@urbanbrews.com",
   "contact_phone": "555-0456",
   "lead_score": 80,
   "priority": "HIGH" ✅
@@ -52,7 +52,7 @@ Watch Logan intelligently qualify leads through natural conversation, automatica
   "timeline": "next week", 
   "volume": "100-300 customers per day",
   "contact_name": "Alex",
-  "contact_email": "alex@urgentcafe.com", 
+  "contact_email": "alex@quickstart-cafe.com", 
   "contact_phone": "555-0999",
   "lead_score": 90,
   "priority": "HIGH" ✅
@@ -83,7 +83,7 @@ Each qualified lead generates a complete business profile:
   "support_needs": ["comprehensive training", "menu integration", "equipment recommendations"],
   "contact_name": "Jennifer",
   "contact_phone": "555-0789", 
-  "contact_email": "jennifer@restaurantchain.com",
+  "contact_email": "jennifer@dining-group.com",
   "contact_role": "Regional Operations Director",
   "timestamp": "2025-09-15T12:27:04.188212",
   "lead_score": 85,
@@ -306,7 +306,7 @@ The chatbot is powered by a comprehensive knowledge base containing 25+ MDX file
 
 ## 🎭 Logan's Character
 
-**Logan from Abbotsford Road Coffee Specialists** is the AI assistant's persona:
+**Logan from Brewmaster Solutions Inc.** is the AI assistant's persona:
 
 - **Professional**: Expert coffee business consultant with deep industry knowledge
 - **Helpful**: Always provides actionable advice tied to business success
